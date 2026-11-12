@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aiman Azhan</title>
-<meta name="description" content="Aiman Azhan — Kuala Lumpur, Malaysia.">
+<title>Aiman Azhan — Coming soon</title>
+<meta name="description" content="Aiman Azhan — new site coming soon.">
 <meta property="og:title" content="Aiman Azhan">
-<meta property="og:description" content="Kuala Lumpur, Malaysia.">
+<meta property="og:description" content="New site coming soon.">
 <meta property="og:url" content="https://aimanazhan.my">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,62 +17,40 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;display:flex;flex-direction:column;min-height:100vh;-webkit-font-smoothing:antialiased}
-  header{display:flex;justify-content:flex-end;padding:24px 28px}
-  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-  .lang button{background:none;border:0;color:var(--muted);font:500 13px Inter,sans-serif;padding:6px 14px;cursor:pointer}
-  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-  main{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 28px 64px}
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:64px 28px}
   .card{max-width:560px;width:100%}
   .mark{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--bg);display:grid;place-items:center;font:600 22px Fraunces,serif;margin-bottom:32px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font:500 13px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+  .dot{position:relative;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:pulse 2s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.dot::after{animation:none}}
   h1{font:600 clamp(40px,8vw,64px)/1.05 Fraunces,serif;letter-spacing:-.02em;margin-bottom:16px}
-  .lede{color:var(--muted);font-size:19px;margin-bottom:40px;max-width:30ch}
+  .lede{color:var(--muted);font-size:19px;margin-bottom:40px;max-width:32ch}
   ul{list-style:none;border-top:1px solid var(--line)}
   li{border-bottom:1px solid var(--line)}
   li a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;color:var(--ink);text-decoration:none;transition:color .15s}
   li a:hover{color:var(--accent)}
   li a span:last-child{color:var(--muted);font-size:14px}
   footer{padding:24px 28px;color:var(--muted);font-size:13px;text-align:center}
-  [data-lang="bm"] .en,[data-lang="en"] .bm{display:none}
 </style>
 </head>
-<body data-lang="en">
-<header>
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" data-set="en" aria-pressed="true">EN</button>
-    <button type="button" data-set="bm" aria-pressed="false">BM</button>
-  </div>
-</header>
+<body>
 <main>
   <div class="card">
     <div class="mark" aria-hidden="true">A</div>
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Coming soon</p>
     <h1>Aiman Azhan</h1>
-    <p class="lede">
-      <span class="en">Building things in finance, advisory and AI. Based in Malaysia.</span>
-      <span class="bm">Membina dalam bidang kewangan, khidmat nasihat dan AI. Berpangkalan di Malaysia.</span>
-    </p>
+    <p class="lede">A new site is on the way. Check back soon.</p>
     <ul>
-      <li><a href="https://neeladvisory.my" target="_blank" rel="noopener">
-        <span>NEEL Advisory</span>
-        <span class="en">Co-founder ↗</span><span class="bm">Pengasas bersama ↗</span>
-      </a></li>
-      <li><a href="https://github.com/aiman-azhan" target="_blank" rel="noopener">
-        <span>GitHub</span><span>↗</span>
-      </a></li>
       <li><a href="mailto:hello@aimanazhan.my">
-        <span class="en">Get in touch</span><span class="bm">Hubungi saya</span>
+        <span>Get in touch</span>
         <span>hello@aimanazhan.my</span>
       </a></li>
     </ul>
   </div>
 </main>
 <footer>© <span id="y"></span> Aiman Azhan</footer>
-<script>
-  document.getElementById('y').textContent=new Date().getFullYear();
-  const set=l=>{document.body.dataset.lang=l;document.documentElement.lang=l==='bm'?'ms':'en';
-    document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));
-    try{localStorage.setItem('lang',l)}catch(e){}};
-  document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>set(b.dataset.set));
-  try{const s=localStorage.getItem('lang');if(s)set(s)}catch(e){}
-</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
