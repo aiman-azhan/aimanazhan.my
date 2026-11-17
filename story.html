@@ -10,7 +10,9 @@
 <style>
 body{margin:0;background:#efede6}
 a{color:inherit;text-decoration:none}
-.stage{position:sticky;top:0;height:min(100vh,1000px);overflow:hidden;background:#e3cfa2}
+.stage{position:sticky;top:0;height:100vh;min-height:560px;overflow:hidden;background:#e3cfa2}
+.ctl{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;height:44px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,253,247,.94);color:#16181d;font:600 14px Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px -8px rgba(20,20,30,.5);transition:background .2s}
+.ctl:hover{background:#ffffff}.ctl:focus-visible{outline:2px solid #b23a26;outline-offset:2px}
 .grain{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:url(assets/grain.png);background-size:420px 420px;mix-blend-mode:multiply;opacity:.4}
 .vig{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 60% 45%,rgba(60,35,10,0) 50%,rgba(60,35,10,.26) 100%)}
 .ly{position:absolute;inset:0;z-index:2;will-change:transform,opacity;display:none}
@@ -20,15 +22,15 @@ a{color:inherit;text-decoration:none}
 .cap{position:absolute;z-index:6;display:flex;flex-direction:column;gap:14px;max-width:min(520px,80%);color:#fffaf0;text-shadow:0 2px 26px rgba(8,14,40,.8),0 1px 3px rgba(8,14,40,.6)}
 .cap h2{margin:0;font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(34px,4.6vw,58px);line-height:1.06;letter-spacing:-.02em}
 .cap p{margin:0;max-width:40ch;color:rgba(255,250,240,.94)}
-.card{position:absolute;left:0;bottom:0;width:100%;box-sizing:border-box;padding:24px 26px;border-radius:20px;background:#fffdf8;display:flex;flex-direction:column;gap:10px;box-shadow:0 24px 50px -22px rgba(40,50,80,.45)}
+.card{pointer-events:auto;position:absolute;left:0;bottom:0;width:100%;box-sizing:border-box;padding:24px 26px;border-radius:20px;background:#fffdf8;display:flex;flex-direction:column;gap:10px;box-shadow:0 24px 50px -22px rgba(40,50,80,.45)}
 .lnk{border-bottom:1px solid rgba(22,24,29,.3);transition:color .2s,border-color .2s}.lnk:hover{color:#b23a26;border-color:#b23a26}
 .opt{transition:color .2s}.opt:hover{color:#b23a26}
 </style>
 </head>
 <body>
-<div style="min-height: 6400px; background: #efede6; color: #16181d; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased">
+<div style="background: #efede6; color: #16181d; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased">
 
-<section id="b-story" style="position: relative; height: 5650px">
+<section id="b-story" style="position: relative; height: 100vh; min-height: 560px">
 <div class="stage">
 <canvas id="cvx" role="img" aria-label="A miniature model of the places in Aiman's life, with a small figure in red travelling between them" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; z-index: 1"></canvas>
 <div class="ly" data-ly="0"><img src="assets/p-hero.jpg" alt="Painting: a young man on a hilltop looking out over a wide blue sky"></div>
@@ -42,101 +44,95 @@ a{color:inherit;text-decoration:none}
 <div class="vig"></div>
 <div data-shade="1" style="position: absolute; inset: auto 0 0 0; height: 55%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(8,14,40,0), rgba(8,14,40,.55)); opacity: 0"></div>
 
-<header data-head="1" style="position: absolute; left: 0; right: 0; top: 0; z-index: 9; display: flex; align-items: center; justify-content: space-between; padding: 24px 40px; color: #fffaf0; transition: color .4s">
-<span style="font-family: Fraunces, Georgia, serif; font-size: 19px; letter-spacing: -.01em">Aiman Azhan</span>
+<header data-head="1" style="position: absolute; left: 0; right: 0; top: 0; z-index: 9; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 20px; padding: 24px 40px; color: #fffaf0; transition: color .4s">
+<span style="font-family: Fraunces, Georgia, serif; font-size: 19px; letter-spacing: -.01em; white-space: nowrap">Aiman Azhan</span>
 <nav style="display: flex; align-items: center; gap: 22px; font-size: 14px">
-<a href="index.html">Home</a><a href="career.html">Career</a><a href="contact.html">Contact</a>
+<a href="index.html">Home</a><a href="career.html">Career</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a>
 </nav>
 </header>
 
-<div class="cap tl" data-a="-1" data-b="0.05397" data-pos="left: 6%; top: 24%;" style="left: 6%; top: 24%">
-<span class="eye">ASSALAMUALAIKUM</span>
-<h2>I&#39;m Aiman Azhan.</h2>
-<p>Business strategist and fund manager, based in Kuala Lumpur.</p>
-</div>
-<div class="cap tl" data-a="0.08333" data-b="0.14311" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
+<div class="cap tl" data-a="-1" data-b="0.06171" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
 <span class="eye">1997 · KUALA LUMPUR</span>
-<h2>Born in Kuala Lumpur.</h2>
-<p>November 1997.</p>
+<h2>It begins in Kuala Lumpur.</h2>
+<p>Born in November 1997.</p>
 </div>
-<div class="cap tl" data-a="0.16304" data-b="0.22282" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
+<div class="cap tl" data-a="0.07911" data-b="0.13133" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
 <span class="eye">2010 – 2014 · MELAKA</span>
-<h2>MRSM Alor Gajah.</h2>
-<p>Five years of boarding school in Melaka.</p>
+<h2>Five formative years at MRSM Alor Gajah.</h2>
+<p>Boarding school in Melaka, from the age of thirteen to seventeen.</p>
 </div>
-<div class="cap tl" data-a="0.39855" data-b="0.45833" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
+<div class="cap tl" data-a="0.28481" data-b="0.33703" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
 <span class="eye">2015 · UNITED STATES</span>
-<h2>Left to study in the United States.</h2>
-<p>Two years in Washington, two in Arizona.</p>
+<h2>Then, the United States.</h2>
+<p>Four years of study abroad: two in Washington, two in Arizona.</p>
 </div>
-<div class="cap tl" data-a="0.66304" data-b="0.72282" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
+<div class="cap tl" data-a="0.5981" data-b="0.65032" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
 <span class="eye">2019 · ARIZONA</span>
-<h2>BSc Finance, Magna Cum Laude.</h2>
-<p>Arizona State University, 2019.</p>
+<h2>Graduated Magna Cum Laude.</h2>
+<p>A BSc in Finance from Arizona State University, 2019.</p>
 </div>
-<div class="cap tl" data-a="0.74275" data-b="0.80253" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
+<div class="cap tl" data-a="0.77531" data-b="0.82753" data-pos="left: 6%; bottom: 13%;" style="left: 6%; bottom: 13%">
 <span class="eye">KUALA LUMPUR</span>
-<h2>Came home and married Dee.</h2>
-<p>Returned to Malaysia in 2019. Married on 5 October 2024.</p>
+<h2>Home, and a new chapter with Dee.</h2>
+<p>Returned to Kuala Lumpur in 2019. Married on 5 October 2024.</p>
+<a class="ctl" data-hold="1" href="wedding.html" style="align-self: flex-start; text-shadow: none; text-decoration: none">See the nikah <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
 </div>
 
-<div style="position: absolute; left: 40px; bottom: 84px; z-index: 6; width: min(400px, calc(100% - 80px)); height: 250px">
-<div class="card tl" data-pos="" data-a="0.32371" data-b="0.37919">
+<div style="position: absolute; left: 40px; bottom: 84px; z-index: 6; width: min(400px, calc(100% - 80px)); height: 250px; pointer-events: none">
+<div class="card tl" data-pos="" data-a="0.21868" data-b="0.26866">
 <span class="eye" style="color: #b23a26">2015 · LEDANG, JOHOR</span>
-<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">KKTM Ledang.</h2>
-<p style="margin: 0; color: #4a4e59">Preparatory programme for study in the United States.</p>
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">A year of preparation.</h2>
+<p style="margin: 0; color: #4a4e59">A preparatory programme at KKTM Ledang, Johor, ahead of university in the United States.</p>
 
 </div>
-<div class="card tl" data-pos="" data-a="0.48313" data-b="0.53861">
+<div class="card tl" data-pos="" data-a="0.38691" data-b="0.4422">
+<span class="eye" style="color: #b23a26">2015 · KUALA LUMPUR TO SEATTLE</span>
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Across the Pacific.</h2>
+<p style="margin: 0; color: #4a4e59">From Kuala Lumpur to Everett, Washington.</p>
+
+</div>
+<div class="card tl" data-pos="" data-a="0.4402" data-b="0.49018">
 <span class="eye" style="color: #b23a26">2015 – 2017 · EVERETT, WASHINGTON</span>
 <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Everett Community College.</h2>
-<p style="margin: 0; color: #4a4e59">Associate&#39;s in Business Administration. Worked in the Business Applied Technology department.</p>
+<p style="margin: 0; color: #4a4e59">An Associate&#39;s in Business Administration, earned while working in the Business Applied Technology department.</p>
 
 </div>
-<div class="card tl" data-pos="" data-a="0.5882" data-b="0.64368">
+<div class="card tl" data-pos="" data-a="0.53197" data-b="0.58195">
 <span class="eye" style="color: #b23a26">2017 – 2019 · ARIZONA</span>
 <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Arizona State University.</h2>
-<p style="margin: 0; color: #4a4e59">W. P. Carey School of Business. Teaching assistant; Vice President, Malaysian Students Association.</p>
+<p style="margin: 0; color: #4a4e59">Finance at the W. P. Carey School of Business, while serving as a teaching assistant and as Vice President of the Malaysian Students Association.</p>
 
 </div>
-<div class="card tl" data-pos="" data-a="0.82733" data-b="0.89006">
+<div class="card tl" data-pos="" data-a="0.69387" data-b="0.74916">
+<span class="eye" style="color: #b23a26">2019 · ARIZONA TO KUALA LUMPUR</span>
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">The journey home.</h2>
+<p style="margin: 0; color: #4a4e59">Back to Malaysia after four years away.</p>
+
+</div>
+<div class="card tl" data-pos="" data-a="0.84843" data-b="0.90473">
 <span class="eye" style="color: #b23a26">2020 – NOW · KUALA LUMPUR</span>
-<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Wahed.</h2>
-<p style="margin: 0; color: #4a4e59">Strategy &amp; Operations, then Group FP&amp;A. Now Fund Manager.</p>
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">A career at Wahed.</h2>
+<p style="margin: 0; color: #4a4e59">From Strategy and Operations to Group Finance, and now Fund Manager.</p>
+<a data-hold="1" href="career.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #b23a26; color: #ffffff; font-weight: 600; font-size: 14px">See the full career <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
 
 </div>
-<div class="card tl" data-pos="" data-a="0.92878" data-b="2">
+<div class="card tl" data-pos="" data-a="0.93704" data-b="2">
 <span class="eye" style="color: #b23a26">NOW · WEEKENDS</span>
-<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Weekends.</h2>
-<p style="margin: 0; color: #4a4e59">Golf and climbing.</p>
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -.02em">Away from the desk.</h2>
+<p style="margin: 0; color: #4a4e59">Weekends are for golf and climbing.</p>
 
 </div>
 </div>
 
+<div style="position: absolute; right: 24px; bottom: 28px; z-index: 9; display: flex; gap: 8px">
+<button class="ctl" type="button" data-toggle="1" aria-label="Pause the story"><svg data-ic-pause="1" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="2" y="1.5" width="3.5" height="11" rx="1"></rect><rect x="8.5" y="1.5" width="3.5" height="11" rx="1"></rect></svg><svg data-ic-play="1" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" style="display: none"><path d="M3 1.6v10.8a.6.6 0 0 0 .92.5l8.3-5.4a.6.6 0 0 0 0-1L3.92 1.1A.6.6 0 0 0 3 1.6z"></path></svg><span data-toggle-text="1">Pause</span></button>
+<button class="ctl" type="button" data-replay="1" aria-label="Play the story again from the start"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8a5.5 5.5 0 1 0 1.8-4.07"></path><path d="M2.5 2.5v3h3"></path></svg><span>Replay</span></button>
+<button class="ctl" type="button" data-skip="1" aria-label="Skip to the end of the story">Skip</button>
+</div>
 <div style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 8; height: 3px; background: rgba(22,24,29,.14)"><span data-bar="1" style="display: block; height: 100%; width: 0; background: #b23a26"></span></div>
 </div>
 </section>
 
-<section id="b-end" style="max-width: 920px; margin: 0 auto; padding: 96px 32px 72px; display: flex; flex-direction: column; gap: 36px">
-<div style="display: flex; flex-direction: column; gap: 12px">
-<span class="eye" style="color: #b23a26">WHERE NEXT</span>
-<h2 style="margin: 0; max-width: 26ch; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.12; letter-spacing: -.02em">That is the story so far.</h2>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid rgba(22,24,29,.14)">
-<a class="opt" href="career.html" style="padding: 22px 20px 22px 0; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid rgba(22,24,29,.14)"><span style="display: inline-flex; align-items: center; gap: 10px; font-family: Fraunces, Georgia, serif; font-size: 24px">Career and projects <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span style="font-size: 14px; color: #6b6f7a">Experience, education and what I have built</span></a>
-<a class="opt" href="contact.html" style="padding: 22px 20px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid rgba(22,24,29,.14)"><span style="display: inline-flex; align-items: center; gap: 10px; font-family: Fraunces, Georgia, serif; font-size: 24px">Contact <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span style="font-size: 14px; color: #6b6f7a">Email and social links</span></a>
-<a class="opt" href="index.html" style="padding: 22px 20px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid rgba(22,24,29,.14)"><span style="display: inline-flex; align-items: center; gap: 10px; font-family: Fraunces, Georgia, serif; font-size: 24px">Main page <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span style="font-size: 14px; color: #6b6f7a">Back to the start</span></a>
-</div>
-<footer style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<span class="eye" style="color: #6b6f7a">CONTACT</span>
-<a class="lnk" href="mailto:me@aimanazhan.my" style="align-self: flex-start; font-family: Fraunces, Georgia, serif; font-size: 32px; line-height: 1.2; letter-spacing: -.02em">me@aimanazhan.my</a>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: #4a4e59">
-<a class="lnk" href="https://www.linkedin.com/in/aimanazhan">LinkedIn</a><a class="lnk" href="https://www.instagram.com/aimanazhan">Instagram</a><a class="lnk" href="https://www.tiktok.com/@aimanazhan">TikTok</a>
-</div>
-</footer>
-</section>
 
 </div>
 <script>class DCLogic{}
@@ -488,8 +484,8 @@ window.MiniWorld = function (THREE, opt) {
 class Component extends DCLogic {
   componentDidMount() {
     var self = this, cur = null, last = '', G = null;
-    // the scroll timeline: [kind, index, part, from, to, leg, stops]. leg and stops: the model moves that many stops on, unseen, behind the painting. P = a painting, S = a stop on the model, T = travel between stops
-    var TL = [["P", 0, "hold", 0.0, 0.05797, -1, 1], ["P", 1, "in", 0.05797, 0.0942, -1, 1], ["P", 1, "hold", 0.0942, 0.13768, -1, 1], ["P", 2, "in", 0.13768, 0.17391, 0, 1], ["P", 2, "hold", 0.17391, 0.21739, 0, 1], ["P", 2, "out", 0.21739, 0.25362, 0, 1], ["S", 1, "", 0.25362, 0.27174, -1, 1], ["T", 1, "", 0.27174, 0.32971, -1, 1], ["S", 2, "", 0.32971, 0.37319, -1, 1], ["P", 3, "in", 0.37319, 0.40942, 2, 2], ["P", 3, "hold", 0.40942, 0.4529, 2, 2], ["P", 3, "out", 0.4529, 0.48913, 2, 2], ["S", 4, "", 0.48913, 0.53261, -1, 1], ["T", 4, "", 0.53261, 0.5942, -1, 1], ["S", 5, "", 0.5942, 0.63768, -1, 1], ["P", 4, "in", 0.63768, 0.67391, 5, 2], ["P", 4, "hold", 0.67391, 0.71739, 5, 2], ["P", 5, "in", 0.71739, 0.75362, -1, 1], ["P", 5, "hold", 0.75362, 0.7971, -1, 1], ["P", 5, "out", 0.7971, 0.83333, -1, 1], ["S", 7, "", 0.83333, 0.88406, -1, 1], ["T", 7, "", 0.88406, 0.93478, -1, 1], ["S", 8, "", 0.93478, 1.0, -1, 1]];
+    // the story timeline, as fractions of the running time: [kind, index, part, from, to, leg, stops]. leg and stops: the model moves that many stops on, unseen, behind the painting. P = a painting, S = a stop on the model, T = travel between stops
+    var TL = [["P", 1, "hold", 0.0, 0.05696, -1, 1], ["P", 2, "in", 0.05696, 0.08861, 0, 1], ["P", 2, "hold", 0.08861, 0.12658, 0, 1], ["P", 2, "out", 0.12658, 0.15823, 0, 1], ["S", 1, "", 0.15823, 0.17405, -1, 1], ["T", 1, "", 0.17405, 0.22468, -1, 1], ["S", 2, "", 0.22468, 0.26266, -1, 1], ["P", 3, "in", 0.26266, 0.2943, 2, 1], ["P", 3, "hold", 0.2943, 0.33228, 2, 1], ["P", 3, "out", 0.33228, 0.36392, 2, 1], ["S", 3, "", 0.36392, 0.38291, -1, 1], ["T", 3, "", 0.38291, 0.4462, -1, 1], ["S", 4, "", 0.4462, 0.48418, -1, 1], ["T", 4, "", 0.48418, 0.53797, -1, 1], ["S", 5, "", 0.53797, 0.57595, -1, 1], ["P", 4, "in", 0.57595, 0.60759, -1, 1], ["P", 4, "hold", 0.60759, 0.64557, -1, 1], ["P", 4, "out", 0.64557, 0.67722, -1, 1], ["S", 5, "", 0.67722, 0.68987, -1, 1], ["T", 5, "", 0.68987, 0.75316, -1, 1], ["P", 5, "in", 0.75316, 0.78481, 6, 1], ["P", 5, "hold", 0.78481, 0.82278, 6, 1], ["P", 5, "out", 0.82278, 0.85443, 6, 1], ["S", 7, "", 0.85443, 0.89873, -1, 1], ["T", 7, "", 0.89873, 0.94304, -1, 1], ["S", 8, "", 0.94304, 1.0, -1, 1]];
     var c01 = function (x) { return x < 0 ? 0 : x > 1 ? 1 : x; }, ez = function (t) { return t * t * (3 - 2 * t); };
     try {
       var T3 = window.THREE, cv = self._cv;
@@ -500,6 +496,25 @@ class Component extends DCLogic {
         G = self._gl = { renderer: rn, world: window.MiniWorld(T3, { painted: true }), w: 0, h: 0 };
       }
     } catch (e) { G = null; }
+    var DUR = 78, root = document.getElementById('b-story');
+    self._playing = true; self._el = 0; self._ended = false;
+    function sync() {
+      if (!root) return;
+      var b = root.querySelector('[data-toggle]'); if (!b) return;
+      var txt = self._ended ? 'Play again' : self._playing ? 'Pause' : 'Play';
+      b.querySelector('[data-toggle-text]').textContent = txt;
+      b.setAttribute('aria-label', self._ended ? 'Play the story again from the start' : self._playing ? 'Pause the story' : 'Play the story');
+      b.querySelector('[data-ic-pause]').style.display = self._playing ? '' : 'none';
+      b.querySelector('[data-ic-play]').style.display = self._playing ? 'none' : '';
+    }
+    function restart() { self._el = 0; self._ended = false; self._playing = true; cur = 0; sync(); if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    if (root) {
+      var tb = root.querySelector('[data-toggle]'), rb = root.querySelector('[data-replay]');
+      Array.prototype.forEach.call(root.querySelectorAll('[data-hold]'), function (h) { ['pointerenter','focus'].forEach(function (n) { h.addEventListener(n, function () { self._hold = true; }); }); ['pointerleave','blur'].forEach(function (n) { h.addEventListener(n, function () { self._hold = false; }); }); });
+      if (tb) tb.addEventListener('click', function () { if (self._ended) restart(); else { self._playing = !self._playing; sync(); } });
+      if (rb) rb.addEventListener('click', restart);
+      var kb = root.querySelector('[data-skip]'); if (kb) kb.addEventListener('click', function () { self._el = DUR; });
+    }
     var styleOf = {};
     function put(el, key, css) { if (styleOf[key] !== css) { styleOf[key] = css; el.style.cssText = css; } }
     function dots(v) { var r = (v * 25 - 2).toFixed(2), m = 'radial-gradient(circle,#000 ' + r + 'px,transparent ' + (v * 25 - 0.5).toFixed(2) + 'px) 50% 50% / 28px 28px'; return '-webkit-mask:' + m + ';mask:' + m + ';'; }
@@ -509,19 +524,19 @@ class Component extends DCLogic {
       var el = document.getElementById('b-story');
       if (el) {
         var stage = el.firstElementChild, r = el.getBoundingClientRect();
-        var travel = r.height - (stage ? stage.offsetHeight : 0);
-        var p = travel > 0 ? -r.top / travel : 0;
-        if (p < 0) p = 0;
-        if (p > 1) p = 1;
-        // On the canvas the artboard is laid out at full height and cannot scroll, so play the story on a timer instead.
-        var fixed = document.documentElement.scrollHeight <= window.innerHeight + 4 && !(window.scrollY > 0);
-        if (fixed) { var loop = (performance.now() / 1000) % 94; p = loop < 2 ? 0 : loop > 90 ? 1 : (loop - 2) / 88; }
+        // The story plays on its own clock: DUR seconds from the first painting to the last stop. It waits while paused or while the tab is hidden.
+        var nowT = performance.now(), step = Math.min(0.25, (nowT - (self._pt || nowT)) / 1000); self._pt = nowT;
+        if (self._playing && !self._hold && !document.hidden) self._el = Math.min(DUR, (self._el || 0) + step);
+        var p = c01(((self._el || 0) - 1.2) / (DUR - 1.2));
+        if (p >= 1 && !self._ended) {
+          self._ended = true; self._playing = false; sync();
+        }
         var now = performance.now(), dt = Math.min(0.25, (now - (self._t || now)) / 1000) || 0.016; self._t = now;
         cur = cur == null ? p : cur + (p - cur) * (1 - Math.exp(-dt * 6));
         if (Math.abs(p - cur) < 0.0002) cur = p;
         var u = cur, s = u.toFixed(4), changed = s !== last; last = s;
         // where the model camera is, and how far in or out each painting is
-        var f = 0, vin = [1, 0, 0, 0, 0, 0], vout = [0, 0, 0, 0, 0, 0], i, q;
+        var f = 0, vin = [1, 1, 0, 0, 0, 0], vout = [0, 0, 0, 0, 0, 0], i, q;
         for (i = 0; i < TL.length; i++) {
           q = TL[i]; var k = q[1], loc = c01((u - q[3]) / (q[4] - q[3])), done = u >= q[4], on = u >= q[3] && !done;
           if (q[0] === 'P') {
@@ -551,7 +566,7 @@ class Component extends DCLogic {
           // 5 the wedding: sweeps in, breaks up into dots
           put(ly[5], 'l5', vin[5] <= 0 || vout[5] >= 1 ? 'display:none' : Z + 'transform:scale(' + (1.16 - vin[5] * 0.16 + vout[5] * 0.06).toFixed(4) + ');' + (vin[5] < 1 ? wipe(vin[5]) : vout[5] > 0 ? dots(1 - vout[5]) : ''));
           var cover = vin[1] >= 1 ? 0 : 1; for (i = 1; i < 6; i++) cover = Math.max(cover, Math.min(vin[i], 1 - vout[i]));
-          var sh = el.querySelector('[data-shade]'); if (sh) sh.style.opacity = (cover * (u > 0.04 ? 1 : u / 0.04)).toFixed(3);
+          var sh = el.querySelector('[data-shade]'); if (sh) sh.style.opacity = cover.toFixed(3);
           var hd = el.querySelector('[data-head]'); if (hd) hd.style.color = cover > 0.5 ? '#fffaf0' : '#16181d';
           var bar = el.querySelector('[data-bar]'); if (bar) bar.style.width = (u * 100).toFixed(2) + '%';
           var tl = el.querySelectorAll('.tl');
